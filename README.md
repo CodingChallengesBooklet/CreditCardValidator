@@ -1,4 +1,4 @@
-# CreditCardValidator
+# Credit Card Validator
 In this code challenge we must validate a credit card using the card's checksum supplied by the card vendor.
 
 ![GitHub followers](https://img.shields.io/github/followers/hrszpuk?style=social)
