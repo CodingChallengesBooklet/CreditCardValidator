@@ -34,15 +34,25 @@ Read more:
 - [What is Checksum on a credit card?](https://www.sapling.com/7966257/checksum-credit-card)
 
 ### pseudocode 
-```
+Here's some pseudocode to showcase how an implementation of the algorithm could look like.
+<br>
+First, we get the `credit_card_number` from user input, and the `last_digit` from the last number of `credit_card_number`.
+We also remove the last digit from the `credit_card_number` so it doesn't mess with any of our calculations for the time being.
+```python
 credit_card_number = INPUT
 last_digit = LAST NUMBER OF credit_card_number
 REMOVE LAST NUMBER OF credit_card_number
+```
 
+Next, we loop over the `credit_card_number` and run a series of checks.
+1. Check if `i` is a multiple of 2. This allows every other number in `credit_card_number` is multiplied by 2.
+2. Check the lengths of the number and add the two digits if the number is longer than a single digit (e.g. >9).
+3. We add the current number to our `sum` variable which is adding up all of our numbers as we loop over `credit_card_number`.
+```python
 i = 0
 sum = 0
 LOOP UNLESS i = LENGTH OF credit_card_number
-    IF credit_card_number[i] IS MULTIPLE OF 2
+    IF i IS MULTIPLE OF 2
         credit_card_number[i] = credit_card_number[i] * 2
     IF LENGTH OF credit_card_number[i] IS MORE THAN 1
         x = credit_card_number[i][0]
@@ -50,7 +60,11 @@ LOOP UNLESS i = LENGTH OF credit_card_number
         credit_card_number[i] = x + y
     sum = sum + credit_card_number[i]
 END
+```
 
+Finally, we add the `last_digit` (the 16th digit of the `credit_card_number` to the `sum`).
+If the `sum` is a multiple of 10 it is valid, otherwise it is invalid.
+```
 sum = sum + last_digit
 IF sum IS MULTIPLE OF 10
     OUTPUT "Credit card number is valid!"
